@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """ Module for trying out Babel i18n """
-from datetime import datetime
-from flask_babel import Babel, _, format_datetime
-import flask_babel
+from flask_babel import Babel, _
 from flask import Flask, render_template, request, g
 import pytz
 from typing import Union
@@ -54,11 +52,7 @@ def before_request():
 @app.route('/', methods=['GET'], strict_slashes=False)
 def hello_world() -> str:
     """Renders a Basic Template for Babel Implementation"""
-    timezone = get_timezone()
-    tz = pytz.timezone(timezone)
-    current_time = datetime.now(tz)
-    current_time = format_datetime(datetime=current_time)
-    return render_template("index.html", current_time=current_time)
+    return render_template("7-index.html")
 
 
 @babel.localeselector
